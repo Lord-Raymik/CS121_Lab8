@@ -116,3 +116,43 @@ else
     decrease the current account balance by amount
 print the new account balance
 ```
+
+## SavingsAccount
+This is a subclass of CheckingAccount
+
+### Variables
+interestRate - double: this variable represents the interest rate on the account  
+
+### Methods
+
+public SavingsAccount()  
+```
+set interestRate to 0
+```
+
+public SavingsAccount(double interest)  
+```
+set interestRate to the constructor's interest parameter
+```
+
+public static void main(String[] args)  
+```
+run the same as main initially
+after main would normally end, instead calculate the interest rate
+rerun the menu
+```
+
+public void calcInterest()  
+```
+multiply the account balance by the interest rate, set the balance to that newly calculated amount
+```
+
+public void setInterestRate(double amount)  
+```
+set the account's interestRate to amount
+```
+
+public double getInterestRate()  
+```
+return the account's interestRate
+```
