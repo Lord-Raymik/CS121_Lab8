@@ -117,22 +117,28 @@ else
 print the new account balance
 ```
 
-## SavingsAccount
+### SavingsAccount
 This is a subclass of CheckingAccount
 
-### Variables
+#### Variables
 interestRate - double: this variable represents the interest rate on the account  
 
-### Methods
+#### Methods
 
 public SavingsAccount()  
 ```
 set interestRate to 0
 ```
 
-public SavingsAccount(double interest)  
+public SavingsAccount(double balance)  
 ```
-set interestRate to the constructor's interest parameter
+set the account's balance to the constructor's balance parameter
+```
+
+public SavingsAccount(double balance, double interest)  
+```
+set the account's balance to the constructor's balance parameter
+set the account's interestRate to the constructor's interest parameter
 ```
 
 public static void main(String[] args)  
