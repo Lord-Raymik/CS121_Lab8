@@ -162,3 +162,63 @@ public double getInterestRate()
 ```
 return the account's interestRate
 ```
+
+### User
+This is an abstract class, representing features that all user's have in common. To be more specific, this class mostly contains features related to logging in.  
+
+#### Variables
+username - String: this variable represent's the recognized name of the user  
+pin - String: this is the user's pin which they need to input to log in  
+
+#### Methods
+
+public boolean login()  
+```
+create a Scanner called input
+create boolean called result, set it to false
+use input to ask the user for their username, save it to a variable called inUsername
+if inUsername equals username
+    use input to ask the user for their pin, save it to a variable called inPin
+    if inPin equals pin
+        tell the user the login was successful
+        set result to true
+    else
+        tell the user the pin is incorrect
+else
+    tell the user their username is invalid
+return result
+```
+
+public boolean login(String inUsername, String inPin)  
+```
+create a boolean called result, set it to false
+if inUsername equals username
+    & if inPin equals pin
+        set result to true
+return result
+```
+
+public void setUsername(String username)  
+```
+set this.username to the method's username parameter
+```
+
+public String getUsername()  
+```
+return the current username
+```
+
+public void setPin(String pin)  
+```
+set this.pin to the method's pin parameter
+```
+
+public String getPin()  
+```
+return the current pin
+```
+
+public abstract String getReport()  
+```
+this has no defined algorithm here, as it is abstract
+```
