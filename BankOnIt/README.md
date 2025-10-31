@@ -25,4 +25,94 @@ This is a subclass of User which contains both a ChecckingAccount and a SavingsA
 
 ### CheckingAccount
 
+#### Variables
+balance - double: This is the only variable in the class, which the class is effectively a wrapper for  
 
+#### Methods
+
+public CheckingAccount()  
+```
+set balance to 0
+```
+
+public CheckingAccount(double Balance)  
+```
+set the account's balance to the constructor's balance parameter
+```
+
+public static void main(String[] args)  
+```
+create a new CheckingAccount containing $1000
+call start on the newly created checking account
+```
+
+public String menu()  
+```
+Print the options for the user to select
+Create a scanner object called input
+use the input scanner to ask the user for a response, saving it to a variable appropriately called response
+return the string in response
+```
+
+public void start()  
+```
+mkae boolean keepGoing, set it to true
+while keepGoing is true
+    call menu(), saving it's return value to a variable called input
+    if input is "0"
+        set keepGoing to false
+    if input is "1"
+        call checkBalance()
+    if input is "2"
+        call makeDeposit()
+    if input is "3"
+        call makeWithdrawal()
+```
+
+public double getBalance()  
+```
+return the current balance of the account
+```
+
+public String getBalanceString()  
+```
+return a formatted string containing the current account balance
+```
+
+public void setBalance(double balance)  
+```
+set the current account balance to the method's balance parameter
+```
+
+private double getDouble()  
+```
+create a new scanner called input
+try
+    use input to aks the user for a double, then return that value
+catch
+    if there is any form of exception caught, return 0.0
+```
+
+public void checkBalance()  
+```
+prints the current account balance to the console
+```
+
+public void makeDeposit()  
+```
+ask the user how much they would like to deposit
+use getDouble() to get a double from the user, save the value to a variable called amount
+increase the current account balance by amount
+print the new account balance
+```
+
+public void makeWithdrawal()  
+```
+ask the user how much they would like to withdrawal
+use getDouble() to get a double from the user, save the value to a variable called amount
+if amount < balance
+    tell the user they have insufficient funds
+else
+    decrease the current account balance by amount
+print the new account balance
+```
