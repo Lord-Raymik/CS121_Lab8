@@ -222,3 +222,69 @@ public abstract String getReport()
 ```
 this has no defined algorithm here, as it is abstract
 ```
+
+### Customer
+This is a subclass of user  
+
+#### Variables
+checking - CheckingAccount: this represents the user's checking account  
+savings - SavingsAccount: this represents the user's savings account  
+
+#### Methods
+
+public static void main(String[] args)  
+```
+Create a new Customer named guy, give him a username and pin
+call start() on guy
+```
+
+public Customer()  
+```
+set username to 'anonymous'
+set pin to '0000'
+set checking to be a blank CheckingAccount (use the no-param constructor)
+set savings to be a blank SavingsAccount (use the no-param constructor)
+```
+
+public Customer(String username, String pin)  
+```
+set username to the constructor's username parameter
+set pin to the constructor's pin parameter
+set checking to be a blank CheckingAccount (use no-param constructor)
+set savings to be a blank SavingsAccount (use no-param constructor)
+```
+
+public String menu()  
+```
+create a scanner object called input
+print the options for the user to select
+ask the user for a response using the scanner, save it to a variable called response
+return the value of response
+```
+
+public void start()  
+```
+make a boolean called keepGoing, set it to true
+while keepGoing is true
+    call menu(), saving it's returned value to a variable called input
+    if input is "0"
+        set keepGoing to true
+    if input is "1"
+        call start() on checking
+    if input is "2"
+        call start() on savings
+    if input is "3"
+        call changePin()
+```
+
+public void changePin()  
+```
+create a new scanner called input
+tell the user to enter a new pin, save the response to a new variable called newPin
+call setPin(String pin), using newPin as the value for the pin parameter
+```
+
+public String getReport()  
+```
+#I have not yet been told what this method is meant to do, so I will leave it blank for now#
+```
