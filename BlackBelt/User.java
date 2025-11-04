@@ -44,7 +44,7 @@ public abstract class User implements HasMenu {
 	
 	public void setPin(String pin) {
 		// forcing pin to all numbers
-		if (pin.matches("^//d{4}$")) {
+		if (pin.matches("^\\d{4}$")) {
 			this.pin = pin;
 		} else {
 			System.out.println("Pin must be 4 digits, with all digits being numeric");

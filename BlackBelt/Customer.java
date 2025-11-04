@@ -1,8 +1,8 @@
 import java.util.*;
 
 public class Customer extends User {
-	CheckingAccount checking;
-	SavingsAccount savings;
+	ArrayList<CheckingAccount> checking = new ArrayList<>();
+	ArrayList<SavingsAccount> savings = new ArrayList<>();
 
 	public static void main(String[] args) {
 		Customer guy = new Customer("Guy", "5555");
@@ -12,15 +12,15 @@ public class Customer extends User {
 	public Customer() {
 		this.username = "anonymous";
 		this.pin = "0000";
-		this.checking = new CheckingAccount();
-		this.savings = new SavingsAccount();
+		this.checking.add(new CheckingAccount());
+		this.savings.add(new SavingsAccount());
 	} // end no-param constructor
 	
 	public Customer(String username, String pin) {
 		this.username = username;
 		this.pin = pin;
-		this.checking = new CheckingAccount();
-		this.savings = new SavingsAccount();
+		this.checking.add(new CheckingAccount());
+		this.savings.add(new SavingsAccount());
 	} // end constructor
 	
 	public String menu() {
@@ -41,9 +41,9 @@ public class Customer extends User {
 				if (input.equals("0")) {
 					keepGoing = false;
 				} else if (input.equals("1")) {
-					this.checking.start();
+					selectAccount(checking);
 				} else if (input.equals("2")) {
-					this.savings.start();
+					selectAccount(savings);
 				} else if (input.equals("3")) {
 					changePin();
 				} // end elseif
@@ -62,4 +62,31 @@ public class Customer extends User {
 	public String getReport() {
 		return "";
 	} // end getReport
+	
+	public void selectAccount(ArrayList<? extends CheckingAccount> accounts) {
+		Scanner input = new Scanner(System.in);
+		if (accounts.size() > 0) {
+			if (accounts.size() == 1) {
+				accounts.get(0).start();
+			} else {
+				System.out.println("Please select an account\n");
+				for (int i = 0; i < accounts.size(); i++) {
+					System.out.println("Account " + i + ": " + accounts.get(i).getBalanceString());
+				} // end for loop
+				System.out.print("\nPlease enter 0-" + (accounts.size()-1) + ": ");
+				int target;
+				try {
+					String response = input.nextLine();
+					target = Integer.parseInt(response);
+				} catch (NumberFormatException e) {
+					target = -1;
+				} // end try-catch
+				if (target >= 0 && target < accounts.size()) {
+					accounts.get(target).start();
+				} else {
+					System.out.println("Invalid account input...");
+				} // end elseif
+			} // end elseif
+		} // end if
+	} // end selectAccount
 } // end class def
