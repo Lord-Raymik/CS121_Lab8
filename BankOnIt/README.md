@@ -288,3 +288,47 @@ public String getReport()
 ```
 #I have not yet been told what this method is meant to do, so I will leave it blank for now#
 ```
+
+### Admin
+This is a subclass of user which represents the bank administrator  
+
+#### Variables
+The admin does not have any particular variables unique to it  
+
+#### Methods
+
+public static void main(String[] args)  
+```
+create a new admin called guy
+run some type of test on him (dont have many to really try atm)
+```
+
+public Admin()  
+```
+set username to 'admin'
+set pin to '0000'
+```
+
+public Admin(String name, String PIN)  
+```
+set username to name
+set pin to PIN
+```
+
+public String menu()  
+```
+create a new scanner called input
+print the different options for the user to pick from
+using input, save the response from the user to a variable called response
+return the value of response
+```
+
+public void start()  
+```
+this method does not do anything
+```
+
+public void getReport()  
+```
+print out the admin's username and pin
+```
