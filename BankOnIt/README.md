@@ -332,3 +332,45 @@ public void getReport()
 ```
 print out the admin's username and pin
 ```
+
+### Bank
+This is the primary class for the program. It holds the list of all the customers, as well as the admin. It can be seen almost as the central point of the program.  
+Bank also implements HasMenu.  
+
+#### Variables
+admin - Admin: this is the system administrator for the bank  
+customers - ArrayList<Customer>: this is the list of all the customers in the bank which are stored in an ArrayList  
+
+#### Methods
+
+public static void main(String[] args)  
+```
+
+```
+
+public Bank()  
+```
+set admin to be a new Admin made with a default constructor
+set customers to be an empty ArrayList of customers
+```
+
+public String menu()  
+```
+Create a new Scanner called input
+print out the valid actions for the user to select from
+use input to ask the user what action they wantr to do, save their response in a string appropriately named response
+return the value of response
+```
+
+public void start()  
+```
+make a boolean called keepGoing, set it to true
+while keepGoing is true
+    call menu(), save it's return value to a String called input
+    if input is "0"
+        set keepGoing to false
+    if input is "1"
+        call startAdmin()
+    if input is "2"
+        call loginAsCustomer()
+``` 
