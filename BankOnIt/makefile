@@ -4,6 +4,9 @@ Customer.class: Customer.java User.class CheckingAccount.class SavingsAccount.cl
 User.class: User.java HasMenu.class
 	javac -g User.java
 
+Admin.class: Admin.java HasMenu.class
+	javac -g Admin.java
+
 CheckingAccount.class: CheckingAccount.java HasMenu.class
 	javac -g CheckingAccount.java
 
