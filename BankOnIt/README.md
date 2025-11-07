@@ -370,7 +370,84 @@ while keepGoing is true
     if input is "0"
         set keepGoing to false
     if input is "1"
-        call startAdmin()
+        create a new Scanner called loginInput
+        use loginInput to ask the user for a username, save it to a String called username
+        use loginInput to ask the user for a pin, save it to a String called pin
+        call the admin's login() method with the username and pin variables as parameters, save the return value to a boolean called success
+        if success is true
+            call startAdmin()
     if input is "2"
         call loginAsCustomer()
-``` 
+```
+
+public void startAdmin()  
+```
+create a new boolean called keepGoing, set it to true
+while keepGoing is true
+    call the admin's menu() method, save it to a String called input
+    if input is "0"
+        set keepGoing to false
+    if input is "1"
+        call fulCustomerReport()
+    if input is "2"
+        call addUser()
+    if input is "3"
+        call applyInterest()
+```
+
+public void loginAsCustomer()  
+```
+create a new Scanner called input
+use input to ask the user for a username, save it to a String called username
+use input to ask the user for a pin, save it to a String called pin
+create an int called customerIndex, set it to -1
+for customers.size() times, with current as the control variable
+    if the current customer's login method returns true with username and pina s the parameters
+        set customerIndex to current
+if customerIndex >= 0
+    call the associated customer's start() method
+else
+    tell the user no account was found
+```
+
+public void fullCustomerReport()  
+```
+for every customer in the customers ArrayList
+    print the customer's name, checking account balance, and savings account balance
+```
+
+public void addUser()  
+```
+Create a new Scanner called input
+use input to get a username from the user, save it to a String
+use input to get a pin from the user, save it to a String
+create a new Customer, using the constructor with both username and pin as the parameters
+add that customer to the customers ArrayList
+```
+
+public void applyInterest()
+```
+for every Customer in customers
+    call their savings account's calcInterest() method
+```
+
+public void loadSampleCustomers()  
+```
+create several sample customers and save them to the customers ArrayList
+```
+
+public void saveCustomers()  
+```
+create a new FileOutputStream called fo, set it to output to a file named "Customers.dat"
+create a new ObjectOutputStream called obIn, set it to output to fo stream
+use obIn to write the customers ArrayList out to a file
+close both the fo and obIn streams
+```
+
+public void loadCustomers()  
+```
+create a new FileInputStream called fIn, have it read from "Customers.dat"
+create a new ObjectInputStream called obIn, have it read from the fIn stream
+create a new customer ArrayList by using obIn's readObject() method
+close both the fIn and obIn streams
+```
