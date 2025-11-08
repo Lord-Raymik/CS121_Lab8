@@ -22,7 +22,7 @@ public class Admin extends User {
 		Scanner input = new Scanner(System.in);
 		System.out.println("\nAdmin Menu\n");
 		System.out.println("0) Exit \n1) Full Customer Report \n2) Add User \n3) Apply Interest to Savings Accounts\n");
-		System.out.print("Action 0-3: ");
+		System.out.print("Action: ");
 		String response = input.nextLine();
 		return response;
 	} // end menu

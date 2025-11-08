@@ -1,6 +1,7 @@
 import java.util.*;
+import java.io.*;
 
-public class CheckingAccount implements HasMenu {
+public class CheckingAccount implements HasMenu, Serializable {
 	private double balance;
 
 
@@ -20,14 +21,13 @@ public class CheckingAccount implements HasMenu {
 	public String menu() {
 		System.out.println("\nAccount menu\n");
 		System.out.println("0) quit\n1) check balance\n2) make a deposit\n3) make a withdrawal\n");
-		System.out.print("Please enter 0-3: ");
+		System.out.print("Action: ");
 		Scanner input = new Scanner(System.in);
 		String response = input.nextLine();
 		return response;
 	} // end menu
 	
 	public void start() {
-		System.out.println("Checking Account");
 		boolean keepGoing = true;
 		while (keepGoing) {
 			String input = menu();

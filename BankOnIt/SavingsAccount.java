@@ -2,11 +2,12 @@ public class SavingsAccount extends CheckingAccount {
 	private double interestRate;
 
 	public SavingsAccount() {
-		this.interestRate = 0;
+		this.interestRate = 1;
 	} // end no-param constructor
 	
 	public SavingsAccount(double balance) {
 		super(balance);
+		this.interestRate = 1;
 	} // end constructor
 	
 	public SavingsAccount(double balance, double interest) {

@@ -6,7 +6,10 @@ public class Customer extends User {
 
 	public static void main(String[] args) {
 		Customer guy = new Customer("Guy", "5555");
-		guy.start();
+		boolean loggedIn = guy.login();
+		if (loggedIn) {
+			guy.start();
+		} // end if
 	} // end main def
 	
 	public Customer() {
@@ -27,28 +30,27 @@ public class Customer extends User {
 		Scanner input = new Scanner(System.in);
 		System.out.println("\nCustomer Menu\n");
 		System.out.println("0) Exit\n1) Manage Checking Account\n2) Manage Savings Account\n3) Change PIN\n");
-		System.out.print("Please enter 0-3: ");
+		System.out.print("Action: ");
 		String response = input.nextLine();
 		return response;
 	} // end menu
 	
 	public void start() {
-		boolean loggedIn = this.login();
-		if (loggedIn == true) {
-			boolean keepGoing = true;
-			while (keepGoing) {
-				String input = menu();
-				if (input.equals("0")) {
-					keepGoing = false;
-				} else if (input.equals("1")) {
-					this.checking.start();
-				} else if (input.equals("2")) {
-					this.savings.start();
-				} else if (input.equals("3")) {
-					changePin();
-				} // end elseif
-			} // end while loop
-		} // end if
+		boolean keepGoing = true;
+		while (keepGoing) {
+			String input = menu();
+			if (input.equals("0")) {
+				keepGoing = false;
+			} else if (input.equals("1")) {
+				System.out.println("Checking Account");
+				this.checking.start();
+			} else if (input.equals("2")) {
+				System.out.println("Savings Account");
+				this.savings.start();
+			} else if (input.equals("3")) {
+				changePin();
+			} // end elseif
+		} // end while loop
 	} // end start
 	
 	public void changePin() {
@@ -60,6 +62,6 @@ public class Customer extends User {
 	} // end changePin
 	
 	public String getReport() {
-		return "";
+		return "User: " + username + ", Checking: " + checking.getBalanceString() + ", Savings: " + savings.getBalanceString();
 	} // end getReport
 } // end class def
