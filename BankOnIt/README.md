@@ -345,13 +345,14 @@ customers - ArrayList<Customer>: this is the list of all the customers in the ba
 
 public static void main(String[] args)  
 ```
-
+Create a new bank
+call start() on the bank
 ```
 
 public Bank()  
 ```
 set admin to be a new Admin made with a default constructor
-set customers to be an empty ArrayList of customers
+call loadCustomers() and set customers to equal it's return value
 ```
 
 public String menu()  
@@ -369,6 +370,7 @@ while keepGoing is true
     call menu(), save it's return value to a String called input
     if input is "0"
         set keepGoing to false
+        call saveCustomers()
     if input is "1"
         create a new Scanner called loginInput
         use loginInput to ask the user for a username, save it to a String called username
@@ -448,6 +450,6 @@ public void loadCustomers()
 ```
 create a new FileInputStream called fIn, have it read from "Customers.dat"
 create a new ObjectInputStream called obIn, have it read from the fIn stream
-create a new customer ArrayList by using obIn's readObject() method
+create a new customer ArrayList by using obIn's readObject() method and save this value to customers
 close both the fIn and obIn streams
 ```
