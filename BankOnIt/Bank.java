@@ -13,9 +13,6 @@ public class Bank implements HasMenu, Serializable {
 	public Bank() {
 		admin = new Admin();
 		this.loadCustomers();
-		if (customers == null) {
-			this.loadSampleCustomers();
-		} // end if
 	} // end constructor
 	
 	public String menu() {
@@ -120,6 +117,10 @@ public class Bank implements HasMenu, Serializable {
 		Customer a = new Customer("Mike", "1111");
 		Customer b = new Customer("Johnathan", "2222");
 		Customer c = new Customer("Elijah", "3333");
+		a.checking.setBalance(1000.00);
+		a.savings.setBalance(0.0);
+		b.checking.setBalance(0.0);
+		b.savings.setBalance(5000.0);
 		customers.add(a);
 		customers.add(b);
 		customers.add(c);
@@ -145,7 +146,7 @@ public class Bank implements HasMenu, Serializable {
 			fIn.close();
 			obIn.close();
 		} catch (IOException e) {
-			e.printStackTrace();
+			this.loadSampleCustomers();
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();	
 		} // end try catch
